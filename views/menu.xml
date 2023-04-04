@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <menuitem id="menu_bookstore_root" 
+    name="Bookstore" 
+    sequence="0"/>
+
+    <menuitem id="menu_employee" 
+    name="Employee" 
+    action="action_bookstore_employee"
+    parent="menu_bookstore_root"
+    sequence="0"/>
+    
+    <menuitem id="menu_book" 
+    name="Book" 
+    parent="menu_bookstore_root"
+    sequence="1"/>
+
+</odoo>

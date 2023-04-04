@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bookstore_employee_tree" model="ir.ui.view">
+        <field name="name">bookstore.employee.tree</field>
+        <field name="model">bookstore.employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="employee Name"/>
+                <field name="ref"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="view_bookstore_employee_form" model="ir.ui.view">
+        <field name="name">bookstore.employee.form</field>
+        <field name="model">bookstore.employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="ref"/>
+                            <field name="gender"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form> 
+        </field>
+    </record>
+
+    <record id="view_bookstore_employee_search" model="ir.ui.view">
+        <field name="name">bookstore.employee.search</field>
+        <field name="model">bookstore.employee</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Employee Name" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
+                <field name="ref"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>
+                <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]"/>
+                <separator />
+                <filter name="filter_kids" string="Kids" domain="[('age', '&lt;=', 5)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Gender" name="group_by_gender" context="{'group_by':'gender'}"/>
+                </group>
+                <separator />
+                <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search> 
+        </field>
+    </record>
+
+    <record id="action_bookstore_employee" model="ir.actions.act_window">
+        <field name="name">Employee</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">bookstore.employee</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first employee.
+            </p>
+        </field>
+    </record>
+
+</odoo>
