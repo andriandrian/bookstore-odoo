@@ -10,8 +10,8 @@
                 <field name="name" string="Book Title"/>
                 <field name="author"/>
                 <field name="price"/>
-                <field name="description"/>
-                <field name="ref"/>
+                <field name="description" optional="show"/>
+                <field name="ref" optional="hide"/>
             </tree> 
         </field>
     </record>
@@ -36,7 +36,17 @@
                             <field name="price"/>
                         </group>
                     </group>
+
+                    <notebook>
+                        <page string="Page 1" name="prescription">
+                            <field name="prescription" placeholder="Enter your text"/>
+                        </page>
+                        <page string="Page 2">
+                            <field name="prescription" placeholder="Enter your text"/>
+                        </page>
+                    </notebook>
                 </sheet>
+
                 <!-- Chatter -->
                 <div class="oe_chatter">
                     <field name="message_follower_ids" groups="base.group_user"/>

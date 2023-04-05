@@ -2,7 +2,7 @@
 
 <odoo>
 
-    <record id="view_bookstore_book_tree" model="ir.ui.view">
+    <record id="view_bookstore_category_tree" model="ir.ui.view">
         <field name="name">bookstore.category.tree</field>
         <field name="model">bookstore.category</field>
         <field name="arch" type="xml">
@@ -51,7 +51,7 @@
     </record>
 
     <record id="action_bookstore_category" model="ir.actions.act_window">
-        <field name="name">Books</field>
+        <field name="name">Categories</field>
         <field name="type">ir.actions.act_window</field> 
         <field name="res_model">bookstore.category</field>
         <field name="context">{}</field>

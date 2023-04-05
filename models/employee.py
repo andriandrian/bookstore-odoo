@@ -11,6 +11,7 @@ class BookstoreEmployee(models.Model):
     ref = fields.Char(string='Reference', default='New Reference')
     age = fields.Integer(string='Age', compute='_compute_age', required=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", default='male', tracking=True, required=True)
+    position = fields.Selection([('staff', 'Staff'), ('cashier', 'Cashier'), ('administrator', 'Administrator'), ('snrstaff', 'Shipping and Receiving Staff') ], string="Position", default='staff', tracking=True, required=True)
     active = fields.Boolean(string='Active', default=True)
 
     @api.depends('date_of_birth')
@@ -20,4 +21,4 @@ class BookstoreEmployee(models.Model):
             if rec.date_of_birth:
                 rec.age = today.year - rec.date_of_birth.year
             else:
-                rec.age = 1
+                rec.age = 0
