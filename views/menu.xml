@@ -15,6 +15,13 @@
     <menuitem id="menu_book" 
     name="Book" 
     parent="menu_bookstore_root"
+    action="action_bookstore_book"
     sequence="1"/>
+
+    <!-- <menuitem id="menu_appointment" 
+    name="Appointment" 
+    parent="menu_bookstore_root"
+    action="action_bookstore_appointment"
+    sequence="2"/> -->
 
 </odoo>

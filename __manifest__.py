@@ -10,11 +10,14 @@
     'category': 'Management',
     'sequence': -100,
     'version': '0.1',
-    'depends': [],
+    'depends': ['mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/employee_views.xml',
+        'views/book_views.xml',
+        'views/appointment_views.xml',
+
     ],
     'demo': [
         'demo/demo.xml',
