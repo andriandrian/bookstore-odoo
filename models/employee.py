@@ -6,9 +6,9 @@ class BookstoreEmployee(models.Model):
     _description = "Employee Bookstore"
 
     name = fields.Char('Name', tracking=True, required=True)
+    ref = fields.Char('Reference', default='New Reference')
     age = fields.Integer('Age', required=True)
-    ref = fields.Char('Reference')
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", required=True)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", default='male', required=True)
     active = fields.Boolean('Active', default=True)
     # address = fields.Text('Address', required=True)
     # phone = fields.Char('Phone', required=True)
