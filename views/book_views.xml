@@ -1,7 +1,7 @@
 <odoo>
 
     <record id="action_bookstore_book" model="ir.actions.act_window">
-        <field name="name">Book</field>
+        <field name="name">Books</field>
         <field name="type">ir.actions.act_window</field> 
         <field name="res_model">bookstore.employee</field>
         <field name="context">{}</field>
@@ -15,7 +15,7 @@
     </record>
 
     <menuitem id="menu_book" 
-    name="Book"
+    name="Books"
     action="action_bookstore_book"
     parent="menu_bookstore_root"
     sequence="1"/>

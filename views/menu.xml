@@ -7,13 +7,13 @@
     sequence="0"/>
 
     <menuitem id="menu_employee" 
-    name="Employee" 
+    name="Employees" 
     action="action_bookstore_employee"
     parent="menu_bookstore_root"
     sequence="0"/>
     
     <menuitem id="menu_book" 
-    name="Book" 
+    name="Books" 
     parent="menu_bookstore_root"
     action="action_bookstore_book"
     sequence="1"/>

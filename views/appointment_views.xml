@@ -7,6 +7,9 @@
         <field name="model">bookstore.appointment</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="employee_id"/>
+                <field name="appointment_time"/>
+                <field name="booking_date"/>
             </tree> 
         </field>
     </record>
@@ -20,6 +23,8 @@
                     <group>
                         <group>
                             <field name="employee_id"/>
+                            <field name="appointment_time"/>
+                            <field name="booking_date"/>
                         </group>
                         <group>
                         </group>
@@ -45,7 +50,7 @@
     </record>
 
     <record id="action_bookstore_appointment" model="ir.actions.act_window">
-        <field name="name">Appointment</field>
+        <field name="name">Appointments</field>
         <field name="type">ir.actions.act_window</field> 
         <field name="res_model">bookstore.appointment</field>
         <field name="context">{}</field>
@@ -59,7 +64,7 @@
 
 
     <menuitem id="menu_appointment" 
-    name="Appointment" 
+    name="Appointments" 
     action="action_bookstore_appointment"
     parent="menu_bookstore_root"
     sequence="10"/>

@@ -7,7 +7,7 @@
         <field name="model">bookstore.employee</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" string="employee Name"/>
+                <field name="name" string="Employee Name"/>
                 <field name="ref"/>
                 <field name="age"/>
                 <field name="gender"/>
@@ -69,7 +69,7 @@
     </record>
 
     <record id="action_bookstore_employee" model="ir.actions.act_window">
-        <field name="name">Employee</field>
+        <field name="name">Employees</field>
         <field name="type">ir.actions.act_window</field> 
         <field name="res_model">bookstore.employee</field>
         <field name="context">{}</field>
@@ -83,7 +83,7 @@
 
 
     <menuitem id="menu_employee" 
-    name="Employee" 
+    name="Employees" 
     action="action_bookstore_employee"
     parent="menu_bookstore_root"
     sequence="0"/>

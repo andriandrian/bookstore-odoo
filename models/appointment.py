@@ -6,3 +6,5 @@ class BookstoreAppointment(models.Model):
     _description = "Bookstore Appointment"
 
     employee_id = fields.Many2one(string="Employee", comodel_name='bookstore.employee')
+    appointment_time = fields.Datetime(string='Appointment Time')
+    booking_date = fields.Date(string='Booking Date')
