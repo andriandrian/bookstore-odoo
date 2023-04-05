@@ -23,10 +23,16 @@
     action="action_bookstore_book"
     sequence="3"/>
 
+    <menuitem id="menu_category" 
+    name="Categories" 
+    parent="menu_bookstore_master"
+    action="action_bookstore_category"
+    sequence="4"/>
+
     <menuitem id="menu_appointment" 
     name="Appointments" 
     action="action_bookstore_appointment"
     parent="menu_bookstore_master"
-    sequence="4"/>
+    sequence="100"/>
 
 </odoo>

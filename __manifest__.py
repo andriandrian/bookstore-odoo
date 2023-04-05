@@ -17,7 +17,7 @@
         'views/employee_views.xml',
         'views/book_views.xml',
         'views/appointment_views.xml',
-
+        'views/category_views.xml',
     ],
     'demo': [
         'demo/demo.xml',
