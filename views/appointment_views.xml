@@ -33,7 +33,8 @@
                     </group>
 
                     <notebook>
-                        <page string="Page 1">
+                        <page string="Page 1" name="prescription">
+                            <field name="prescription" placeholder="Enter your text"/>
                         </page>
                         <page string="Page 2">
                         </page>
