@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" string="Book Title"/>
+                <field name="category_id"/>
                 <field name="author"/>
                 <field name="price"/>
                 <field name="description" optional="show"/>
@@ -28,6 +29,7 @@
                             <field name="name" string="Book Title"/>
                             <field name="author"/>
                             <field name="category"/>
+                            <field name="category_id" default="Fiction"/>
                             <field name="active" invisible="1"/>
                         </group>
                         <group>

@@ -5,6 +5,7 @@ class Books(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Book Bookstore"
 
+    category_id = fields.Many2one('bookstore.category', string="Category")
     name = fields.Char(string='Name', tracking=True)
     author = fields.Char(string='Author', tracking=True)
     price = fields.Float(string='Price', tracking=True)
