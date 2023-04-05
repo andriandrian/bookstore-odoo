@@ -6,22 +6,27 @@
     name="Bookstore" 
     sequence="0"/>
 
+    <menuitem id="menu_bookstore_master"
+    name="Menu"
+    parent="menu_bookstore_root"
+    sequence="1"/>
+
     <menuitem id="menu_employee" 
     name="Employees" 
+    parent="menu_bookstore_master"
     action="action_bookstore_employee"
-    parent="menu_bookstore_root"
-    sequence="0"/>
+    sequence="2"/>
     
     <menuitem id="menu_book" 
     name="Books" 
-    parent="menu_bookstore_root"
+    parent="menu_bookstore_master"
     action="action_bookstore_book"
-    sequence="1"/>
+    sequence="3"/>
 
-    <!-- <menuitem id="menu_appointment" 
-    name="Appointment" 
-    parent="menu_bookstore_root"
+    <menuitem id="menu_appointment" 
+    name="Appointments" 
     action="action_bookstore_appointment"
-    sequence="2"/> -->
+    parent="menu_bookstore_master"
+    sequence="4"/>
 
 </odoo>

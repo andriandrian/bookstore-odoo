@@ -12,9 +12,6 @@ class BookstoreEmployee(models.Model):
     age = fields.Integer(string='Age', compute='_compute_age', required=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", default='male', tracking=True, required=True)
     active = fields.Boolean(string='Active', default=True)
-    # address = fields.Text('Address', required=True)
-    # phone = fields.Char('Phone', required=True)
-    # email = fields.Char('Email', required=True)
 
     @api.depends('date_of_birth')
     def _compute_age(self):

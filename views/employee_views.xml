@@ -82,11 +82,4 @@
         </field>
     </record>
 
-
-    <menuitem id="menu_employee" 
-    name="Employees" 
-    action="action_bookstore_employee"
-    parent="menu_bookstore_root"
-    sequence="0"/>
-
 </odoo>

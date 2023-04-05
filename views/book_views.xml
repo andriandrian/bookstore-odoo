@@ -13,11 +13,5 @@
             </p>
         </field>
     </record>
-
-    <menuitem id="menu_book" 
-    name="Books"
-    action="action_bookstore_book"
-    parent="menu_bookstore_root"
-    sequence="1"/>
-
+    
 </odoo>

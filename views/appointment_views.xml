@@ -73,10 +73,5 @@
     </record>
 
 
-    <menuitem id="menu_appointment" 
-    name="Appointments" 
-    action="action_bookstore_appointment"
-    parent="menu_bookstore_root"
-    sequence="10"/>
 
 </odoo>
