@@ -31,6 +31,13 @@
                             <field name="appointment_time"/>
                         </group>
                     </group>
+
+                    <notebook>
+                        <page string="Page 1">
+                        </page>
+                        <page string="Page 2">
+                        </page>
+                    </notebook>
                 </sheet>
                 <!-- Chatter -->
                 <div class="oe_chatter">
