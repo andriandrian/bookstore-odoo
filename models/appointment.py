@@ -4,6 +4,7 @@ class BookstoreAppointment(models.Model):
     _name = "bookstore.appointment"
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Bookstore Appointment"
+    _rec_name = 'employee_id'
 
     employee_id = fields.Many2one(string="Employee", comodel_name='bookstore.employee')
     gender = fields.Selection(string="Gender", related='employee_id.gender')
