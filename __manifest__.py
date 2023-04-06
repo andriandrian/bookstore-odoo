@@ -18,6 +18,8 @@
         'views/book_views.xml',
         'views/appointment_views.xml',
         'views/category_views.xml',
+        'views/inventory_views.xml',
+        'views/transaction_views.xml',
     ],
     'demo': [
         'demo/demo.xml',

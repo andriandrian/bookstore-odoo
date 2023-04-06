@@ -3,3 +3,5 @@ access_bookstore_employee,access.bookstore.employee,model_bookstore_employee,,1,
 access_bookstore_appointment,access.bookstore.appointment,model_bookstore_appointment,,1,1,1,1
 access_bookstore_book,access.bookstore.book,model_bookstore_book,,1,1,1,1
 access_bookstore_category,access.bookstore.category,model_bookstore_category,,1,1,1,1
+access_bookstore_inventory,access.bookstore.inventory,model_bookstore_inventory,,1,1,1,1
+access_bookstore_transaction,access.transcation.inventory,model_bookstore_transaction,,1,1,1,1

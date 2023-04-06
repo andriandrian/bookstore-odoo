@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bookstore_inventory_tree" model="ir.ui.view">
+        <field name="name">bookstore.inventory.tree</field>
+        <field name="model">bookstore.inventory</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="invoice_date"/>
+                <field name="ref"/>
+                <field name="name" string="Product"/>
+                <field name="serial_number"/>
+                <field name="vendor"/>
+                <field name="to"/>
+                <field name="stock_type"
+                    decoration-success="stock_type == 'in'"
+                    decoration-danger="stock_type == 'out'"
+                    widget="badge"
+                />
+                <field name="stock"/>
+                <field name="unit_measure"/>
+                <field name="company"/>
+                <field name="state"/>
+            </tree> 
+        </field>
+    </record>
+
+
+    <record id="view_bookstore_inventory_form" model="ir.ui.view">
+        <field name="name">bookstore.inventory.form</field>
+        <field name="model">bookstore.inventory</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="invoice_date"/>
+                            <field name="ref"/>
+                            <field name="name" string="Product Name"/>
+                            <field name="serial_number"/>
+                            <field name="vendor"/>
+                            <field name="to"/>
+                        </group>
+                        <group>
+                            <field name="stock_type"/>
+                            <field name="stock"/>
+                            <field name="unit_measure"/>
+                            <field name="company"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form> 
+        </field>
+    </record>
+
+    <record id="view_bookstore_inventory_search" model="ir.ui.view">
+        <field name="name">bookstore.inventory.search</field>
+        <field name="model">bookstore.inventory</field>
+        <field name="arch" type="xml">
+            <search>
+            </search> 
+        </field>
+    </record>
+
+    <record id="action_bookstore_inventory" model="ir.actions.act_window">
+        <field name="name">Inventory</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">bookstore.inventory</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first inventory.
+            </p>
+        </field>
+    </record>
+
+</odoo>

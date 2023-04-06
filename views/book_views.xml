@@ -7,12 +7,12 @@
         <field name="model">bookstore.book</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="ref" optional="hide"/>
                 <field name="name" string="Book Title"/>
                 <field name="category_id"/>
                 <field name="author"/>
                 <field name="price"/>
                 <field name="description" optional="show"/>
-                <field name="ref" optional="hide"/>
             </tree> 
         </field>
     </record>
@@ -24,6 +24,19 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+      
+                <div class="oe_button_box" name="button_box">
+                  <button type="object" name="inventory_action" class="oe_stat_button" icon="fa-cubes">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="qty"/>
+                                    <br />
+                                    <span>Stock</span>
+                                </span>
+                            </div>
+                        </button>
+                </div>
+        
                     <group>
                         <group>
                             <field name="name" string="Book Title"/>
@@ -67,6 +80,14 @@
             </search> 
         </field>
     </record>
+
+    <record id="seq_bookstore_book" model="ir.sequence">
+       <field name="name">Book Sequence</field>
+       <field name="code">bookstore.book</field>
+       <field name="prefix">BK</field>
+       <field name="padding">5</field>
+       <field name="company_id" eval="False"/>
+   </record>
 
     <record id="action_bookstore_book" model="ir.actions.act_window">
         <field name="name">Books</field>
