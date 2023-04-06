@@ -6,7 +6,6 @@ class Books(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Book Bookstore"
 
-    book_id = fields.Many2one('bookstore.transaction', string='Book')
     category_id = fields.Many2one('bookstore.category', string="Category")
     name = fields.Char(string='Name', tracking=True)
     author = fields.Char(string='Author', tracking=True)
@@ -39,3 +38,19 @@ class Books(models.Model):
         for rec in self:
             rec.qty = sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'in'), ('name', '=', self.id)]).mapped(
                 'stock')) - sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'out'), ('name', '=', self.id)]).mapped('stock'))
+
+
+class BookLine(models.Model):
+    _name = "bookstore.book.line"
+    _description = "Book Line"
+
+    book_id = fields.Many2one('bookstore.transaction', string='Book')
+    name = fields.Many2one('bookstore.book', string='Book')
+    price = fields.Float(string='Price', related="name.price")
+    qty = fields.Integer(string='Quantity')
+    subtotal = fields.Float(string='Subtotal', compute='_compute_subtotal')
+
+    @api.onchange('qty')
+    def _compute_subtotal(self):
+        for rec in self:
+            rec.subtotal = rec.price * rec.qty

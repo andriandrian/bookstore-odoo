@@ -10,12 +10,10 @@ class Transaction(models.Model):
     description = fields.Text(string='Description', tracking=True)
     active = fields.Boolean(string='Active', default=True)
     book_ids = fields.One2many(
-        'bookstore.book', 'book_id', string='Books')
+        'bookstore.book.line', 'book_id', string='Books')
     date = fields.Datetime(
         string='Date', default=fields.Datetime.now, readonly=True)
     total = fields.Float(string='Total', compute='_compute_total', store=True)
-    # transaction_ids = fields.One2many(
-    #     'bookstore.book', 'book_ids', string='Transaction Book')
 
 
 # class TransactionBook(models.Model):

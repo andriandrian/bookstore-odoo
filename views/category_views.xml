@@ -9,7 +9,6 @@
             <tree>
                 <field name="name" string="Category Name"/>
                 <field name="description"/>
-                <field name="ref"/>
             </tree> 
         </field>
     </record>
@@ -24,9 +23,6 @@
                         <group>
                             <field name="name" string="Category Title"/>
                             <field name="description"/>
-                        </group>
-                        <group>
-                            <field name="ref"/>
                             <field name="active" invisible="1"/>
                         </group>
                     </group>

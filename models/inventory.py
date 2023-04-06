@@ -13,7 +13,7 @@ class Inventory(models.Model):
     invoice_date = fields.Datetime(
         string='Invoice Date', default=fields.Datetime.now, tracking=True)
     # ref = fields.Char(string="Reference", related='bookstore_book.ref')
-    ref = fields.Char(string='Reference', readonly=True)
+    ref = fields.Char(string='Reference', readonly=True, related='name.ref')
     serial_number = fields.Char(string='Lot/Serial Number', tracking=True)
     vendor = fields.Char(string='From', tracking=True)
     to = fields.Char(string='To', tracking=True)
