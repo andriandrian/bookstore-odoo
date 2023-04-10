@@ -1,4 +1,5 @@
 from odoo import models, fields, api, _
+# from odoo.exceptions import ValidationError
 
 
 class Books(models.Model):
@@ -6,7 +7,6 @@ class Books(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Book Bookstore"
 
-    category_id = fields.Many2one('bookstore.category', string="Category")
     name = fields.Char(string='Name', tracking=True)
     author = fields.Char(string='Author', tracking=True)
     price = fields.Float(string='Price', tracking=True)
@@ -15,11 +15,20 @@ class Books(models.Model):
                          compute='_compute_quantity')
     category = fields.Selection([('fiction', 'Fiction'), ('non-fiction', 'Non-Fiction')],
                                 string="Category", default='fiction', tracking=True, required=True)
+    category_id = fields.Many2one('bookstore.category', string="Category")
     # ref = fields.Char(string='Reference', default='New Reference')
     ref = fields.Char(string='Reference', required=True,
                       readonly=True, default=lambda self: _('New'))
     prescription = fields.Html(string='Prescription')
     active = fields.Boolean(string='Active', default=True)
+
+    # @api.constrains('name')
+    # def check_name(self):
+    #     for rec in self:
+    #         names = self.env['bookstore.book'].search(
+    #             [('name', '=', rec.name)])
+    #         if names:
+    #             raise ValidationError(_('Book %s already exists' % rec.name))
 
     @api.model
     def create(self, vals):
@@ -39,18 +48,20 @@ class Books(models.Model):
             rec.qty = sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'in'), ('name', '=', self.id)]).mapped(
                 'stock')) - sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'out'), ('name', '=', self.id)]).mapped('stock'))
 
-
-class BookLine(models.Model):
-    _name = "bookstore.book.line"
-    _description = "Book Line"
-
-    book_id = fields.Many2one('bookstore.transaction', string='Book')
-    name = fields.Many2one('bookstore.book', string='Book')
-    price = fields.Float(string='Price', related="name.price")
-    qty = fields.Integer(string='Quantity')
-    subtotal = fields.Float(string='Subtotal', compute='_compute_subtotal')
-
-    @api.onchange('qty')
-    def _compute_subtotal(self):
-        for rec in self:
-            rec.subtotal = rec.price * rec.qty
+    def wizard_update_stock(self):
+        return {
+            'name': _('Update Stock'),
+            'type': 'ir.actions.act_window',
+            'res_model': 'bookstore.inventory',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_name': self.id},
+        }
+    # return {
+    # 'name': _('Test Wizard'),
+    # 'type': 'ir.actions.act_window',
+    # 'res_model': 'bookstore.iventory’,
+    # 'view_mode': 'form',
+    # 'res_id': wizard.id,
+    # 'target': 'new'
+    # }

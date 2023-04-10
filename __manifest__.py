@@ -20,6 +20,7 @@
         'views/category_views.xml',
         'views/inventory_views.xml',
         'views/transaction_views.xml',
+        # 'report/transcation_report.xml',
     ],
     'demo': [
         'demo/demo.xml',

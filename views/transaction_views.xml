@@ -18,6 +18,9 @@
         <field name="model">bookstore.transaction</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <!-- <button name="print_report" type="object" string="Print" class="oe_highlight"  /> -->
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -27,7 +30,7 @@
                     </group>
                     <notebook>
                         <page string="Page 1" name="page_1">
-                            <field name="book_ids">
+                            <field name="transaction_ids">
                                 <tree editable="1">
                                     <field name="name"/>
                                     <field name="price"/>
