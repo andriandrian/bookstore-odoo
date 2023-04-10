@@ -8,6 +8,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="date"/>
+                <field name="ref"/>
+                <field name="total"/>
             </tree> 
         </field>
     </record>
@@ -24,6 +26,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="ref"/>
                             <field name="date"/>
                             <field name="total"/>
                         </group>
@@ -54,6 +57,14 @@
             </search> 
         </field>
     </record>
+
+    <record id="seq_bookstore_book" model="ir.sequence">
+       <field name="name">Book Sequence</field>
+       <field name="code">bookstore.book</field>
+       <field name="prefix">TS</field>
+       <field name="padding">5</field>
+       <field name="company_id" eval="False"/>
+   </record>
 
     <record id="action_bookstore_transaction" model="ir.actions.act_window">
         <field name="name">Transaction</field>

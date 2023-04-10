@@ -7,7 +7,7 @@
         <field name="model">bookstore.book</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="ref" optional="hide"/>
+                <field name="ref"/>
                 <field name="name" string="Book Title"/>
                 <field name="category_id"/>
                 <field name="author"/>

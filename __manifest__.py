@@ -20,7 +20,8 @@
         'views/category_views.xml',
         'views/inventory_views.xml',
         'views/transaction_views.xml',
-        # 'report/transcation_report.xml',
+        # 'report/transaction_card_template.xml',
+        # 'report/report.xml',
     ],
     'demo': [
         'demo/demo.xml',

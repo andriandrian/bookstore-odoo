@@ -6,7 +6,8 @@ class Transaction(models.Model):
     _description = "Book Transaction"
 
     name = fields.Char(string='Name', tracking=True)
-    ref = fields.Char(string='Reference', default='New Reference')
+    ref = fields.Char(string='Reference', required=True,
+                      readonly=True, default=lambda self: _('New'))
     description = fields.Text(string='Description', tracking=True)
     active = fields.Boolean(string='Active', default=True)
     transaction_ids = fields.One2many(
@@ -14,6 +15,14 @@ class Transaction(models.Model):
     date = fields.Datetime(
         string='Date', default=fields.Datetime.now, readonly=True)
     total = fields.Float(string='Total', compute='_compute_total')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('ref', _('New')) == _('New'):
+            vals['ref'] = self.env['ir.sequence'].next_by_code(
+                'bookstore.book') or _('New')
+        res = super(Transaction, self).create(vals)
+        return res
 
     def _compute_total(self):
         self.total = sum(self.transaction_ids.mapped('subtotal'))

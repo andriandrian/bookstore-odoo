@@ -10,7 +10,7 @@
         <field name="binding_type">report</field>
     </record>
 
-    <record id="report_transaction_id" model="ir.action.report">
+    <record id="report_transaction_card" model="ir.action.report">
         <field name="name">Transaction Report</field>
         <field name="model">bookstoe.transaction</field>
         <field name="report-type">qweb-pdf</field>
