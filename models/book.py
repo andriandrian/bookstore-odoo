@@ -13,8 +13,6 @@ class Books(models.Model):
     description = fields.Text(string='Description', tracking=True)
     qty = fields.Integer(string='Quantity', tracking=True,
                          compute='_compute_quantity')
-    category = fields.Selection([('fiction', 'Fiction'), ('non-fiction', 'Non-Fiction')],
-                                string="Category", default='fiction', tracking=True, required=True)
     category_id = fields.Many2one('bookstore.category', string="Category")
     # ref = fields.Char(string='Reference', default='New Reference')
     ref = fields.Char(string='Reference', required=True,

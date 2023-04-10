@@ -6,7 +6,7 @@
         Bookstore Management
     """,
     'author': "Andrian",
-    'website': "http://www.yourcompany.com",
+    'website': "http://www.sgeede.com",
     'category': 'Management',
     'sequence': -100,
     'version': '0.1',
@@ -20,8 +20,9 @@
         'views/category_views.xml',
         'views/inventory_views.xml',
         'views/transaction_views.xml',
-        # 'report/transaction_card_template.xml',
-        # 'report/report.xml',
+        'reports/transaction_report_detail.xml',
+        # 'reports/report.xml',
+        # 'reports/transaction_detail_template.xml',
     ],
     'demo': [
         'demo/demo.xml',

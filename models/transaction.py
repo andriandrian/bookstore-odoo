@@ -4,6 +4,7 @@ from odoo import models, fields, api, _
 class Transaction(models.Model):
     _name = "bookstore.transaction"
     _description = "Book Transaction"
+    _rec_name = 'ref'
 
     name = fields.Char(string='Name', tracking=True)
     ref = fields.Char(string='Reference', required=True,

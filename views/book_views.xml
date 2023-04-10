@@ -43,7 +43,6 @@
                         <group>
                             <field name="name" string="Book Title"/>
                             <field name="author"/>
-                            <field name="category"/>
                             <field name="category_id" default="Fiction"/>
                             <field name="active" invisible="1"/>
                         </group>
