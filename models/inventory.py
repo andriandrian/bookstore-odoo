@@ -17,7 +17,6 @@ class Inventory(models.Model):
     # vendor = fields.Char(string='From', tracking=True)
     # to = fields.Char(string='To', tracking=True)
     stock = fields.Integer(string='Stock', tracking=True, required=True)
-    # total_qty = fields.Integer(string='Balance', tracking=True)
     unit_measure = fields.Selection([('piece', 'PCs'), ('dozen', 'Dozen')],
                                     string="Unit of Measure", default='piece', tracking=True, required=True)
     company = fields.Many2one(
