@@ -11,8 +11,6 @@
                 <field name="invoice_date"/>
                 <field name="ref"/>
                 <field name="name" string="Product"/>
-                <!-- <field name="vendor"/> -->
-                <!-- <field name="to"/> -->
                 <field name="stock_type"
                     decoration-success="stock_type == 'in'"
                     decoration-danger="stock_type == 'out'"
@@ -33,8 +31,13 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>
-                     <!-- statusbar_visible="draft,shipped,cancelled" -->
+                <button name="action_draft" string="Draft" type="object" states="cancel"/>
+                <button name="action_shipped" string="Shipped" type="object" states="draft"/>
+                <button name="action_completed" string="Completed" type="object" states="shipped"/>
+                <button name="action_cancel" string="Cancel" type="object" states="draft,shipped,completed"/>
+                    <field name="state" widget="statusbar" nolabel="1"/>
+                    <!-- options="{'clickable': '1'}" -->
+                    <!-- statusbar_visible="draft,shipped,cancelled" -->
                 </header>
                 <sheet>
                     <group>
@@ -43,8 +46,6 @@
                             <field name="invoice_date"/>
                             <field name="ref"/>
                             <field name="name" string="Product Name"/>
-                            <!-- <field name="vendor"/> -->
-                            <!-- <field name="to"/> -->
                         </group>
                         <group>
                             <field name="stock_type"/>

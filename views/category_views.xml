@@ -38,7 +38,7 @@
         </field>
     </record>
 
-    <record id="view_bookstore_book_search" model="ir.ui.view">
+    <record id="view_bookstore_category_search" model="ir.ui.view">
         <field name="name">bookstore.category.search</field>
         <field name="model">bookstore.category</field>
         <field name="arch" type="xml">

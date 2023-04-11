@@ -41,10 +41,16 @@
     action="action_bookstore_inventory"
     sequence="5"/>
 
-    <menuitem id="menu_appointment" 
+    <menuitem id="menu_bookstore_transaction"
+        name="Transaction"
+        parent="menu_bookstore_root"
+        action="action_bookstore_transaction"
+        sequence="2"/>
+
+    <!-- <menuitem id="menu_appointment" 
     name="Appointments" 
     action="action_bookstore_appointment"
     parent="menu_bookstore_master"
-    sequence="100"/>
+    sequence="100"/> -->
 
 </odoo>

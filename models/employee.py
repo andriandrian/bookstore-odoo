@@ -9,7 +9,6 @@ class BookstoreEmployee(models.Model):
 
     name = fields.Char(string='Name', tracking=True)
     date_of_birth = fields.Date('Date of Birth')
-    ref = fields.Char(string='Reference', default='New Reference')
     age = fields.Integer(string='Age', compute='_compute_age', required=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')],
                               string="Gender", default='male', tracking=True, required=True)

@@ -32,6 +32,22 @@ class Inventory(models.Model):
                               ('completed', 'Completed'),
                               ('cancel', 'Cancelled')], string="State", default='draft', tracking=True, required=True)
 
-    @ api.onchange('book_id')
+    @api.onchange('book_id')
     def onchange_book_id(self):
         self.ref = self.book_id.ref
+
+    def action_draft(self):
+        for rec in self:
+            rec.state = 'draft'
+
+    def action_shipped(self):
+        for rec in self:
+            rec.state = 'shipped'
+
+    def action_completed(self):
+        for rec in self:
+            rec.state = 'completed'
+
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'cancel'
