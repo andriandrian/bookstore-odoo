@@ -11,9 +11,8 @@
                 <field name="invoice_date"/>
                 <field name="ref"/>
                 <field name="name" string="Product"/>
-                <field name="serial_number"/>
-                <field name="vendor"/>
-                <field name="to"/>
+                <!-- <field name="vendor"/> -->
+                <!-- <field name="to"/> -->
                 <field name="stock_type"
                     decoration-success="stock_type == 'in'"
                     decoration-danger="stock_type == 'out'"
@@ -33,6 +32,10 @@
         <field name="model">bookstore.inventory</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"/>
+                     <!-- statusbar_visible="draft,shipped,cancelled" -->
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -40,16 +43,14 @@
                             <field name="invoice_date"/>
                             <field name="ref"/>
                             <field name="name" string="Product Name"/>
-                            <field name="serial_number"/>
-                            <field name="vendor"/>
-                            <field name="to"/>
+                            <!-- <field name="vendor"/> -->
+                            <!-- <field name="to"/> -->
                         </group>
                         <group>
                             <field name="stock_type"/>
                             <field name="stock"/>
                             <field name="unit_measure"/>
                             <field name="company"/>
-                            <field name="state"/>
                         </group>
                     </group>
                 </sheet>
