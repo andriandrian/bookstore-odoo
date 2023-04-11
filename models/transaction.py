@@ -21,7 +21,7 @@ class Transaction(models.Model):
     def create(self, vals):
         if vals.get('ref', _('New')) == _('New'):
             vals['ref'] = self.env['ir.sequence'].next_by_code(
-                'bookstore.book') or _('New')
+                'bookstore.transaction') or _('New')
         res = super(Transaction, self).create(vals)
         return res
 

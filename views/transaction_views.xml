@@ -57,9 +57,9 @@
         </field>
     </record>
 
-    <record id="seq_bookstore_book" model="ir.sequence">
+    <record id="seq_bookstore_transaction" model="ir.sequence">
        <field name="name">Book Sequence</field>
-       <field name="code">bookstore.book</field>
+       <field name="code">bookstore.transaction</field>
        <field name="prefix">TS</field>
        <field name="padding">5</field>
        <field name="company_id" eval="False"/>
@@ -78,11 +78,11 @@
         </field>
     </record>
 
-    <menuitem id="menu_bookstore_transaction"
+    <!-- <menuitem id="menu_bookstore_transaction"
         name="Transaction"
         parent="menu_bookstore_root"
         action="action_bookstore_transaction"
-        sequence="2"/>
+        sequence="2"/> -->
 
 </odoo>
 
