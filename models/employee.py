@@ -1,6 +1,7 @@
 from datetime import date
 from odoo import models, fields, api, _
 
+
 class BookstoreEmployee(models.Model):
     _name = "bookstore.employee"
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -10,9 +11,13 @@ class BookstoreEmployee(models.Model):
     date_of_birth = fields.Date('Date of Birth')
     ref = fields.Char(string='Reference', default='New Reference')
     age = fields.Integer(string='Age', compute='_compute_age', required=True)
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender", default='male', tracking=True, required=True)
-    position = fields.Selection([('staff', 'Staff'), ('cashier', 'Cashier'), ('administrator', 'Administrator'), ('snrstaff', 'Shipping and Receiving Staff') ], string="Position", default='staff', tracking=True, required=True)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')],
+                              string="Gender", default='male', tracking=True, required=True)
+    position = fields.Selection([('staff', 'Staff'), ('cashier', 'Cashier'), ('administrator', 'Administrator'), (
+        'snrstaff', 'Shipping and Receiving Staff')], string="Position", default='staff', tracking=True, required=True)
     active = fields.Boolean(string='Active', default=True)
+    image = fields.Image(string="Image", max_width=1024, max_height=1024,
+                         help="This field holds the image used as avatar for this Employee, limited to 1024x1024px")
 
     @api.depends('date_of_birth')
     def _compute_age(self):
