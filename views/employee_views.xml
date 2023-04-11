@@ -61,14 +61,17 @@
             <templates>
                 <t t-name="kanban-box">
                     <div class="oe_kanban_global_click o_kanban_record_has_iamge_fill">
-                        <div class="o_kanban_image d-none d-md-block"
+                        <!-- <div class="o_kanban_image d-none d-md-block"
                             t-attf-style="background-image:url('#{kanban_image('bookstore.employee', 'image', record.id.raw_value)}')">
                             <img class="o_kanban_image_inner_pic d-none d-md-block"
                                 t-att-src="kanban_image('bookstore.employee', 'image', record.id.raw_value)" />
+                        </div> -->
+                         <div class="oe_kanban_image d-none d-md-block">
+                            <field name="image" widget="image" options="{'size': [100, 100]}" />
                         </div>
                         <div class="oe_kanban_details d-flex flex-column">
                             <strong>
-                                <field name="name"/>
+                                <h2><field name="name"/></h2>
                             </strong>
                             <ul>
                                 <li>Age : <field name="age"/></li>
