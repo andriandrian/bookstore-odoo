@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_bookstore_appointment_tree" model="ir.ui.view">
+        <field name="name">bookstore.appointment.tree</field>
+        <field name="model">bookstore.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="appointment_time"/>
+                <field name="booking_date"/>
+            </tree> 
+        </field>
+    </record>
+
+    <record id="view_bookstore_appointment_form" model="ir.ui.view">
+        <field name="name">bookstore.appointment.form</field>
+        <field name="model">bookstore.appointment</field>
+        <field name="arch" type="xml">
+            <form delete="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="ref"/>
+                            <field name="gender"/>
+                            <field name="booking_date"/>
+                        </group>
+                        <group>
+                            <field name="appointment_time"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Page 1" name="prescription">
+                            <field name="prescription" placeholder="Enter your text"/>
+                        </page>
+                        <page string="Page 2">
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form> 
+        </field>
+    </record>
+
+    <record id="view_bookstore_appoinment_search" model="ir.ui.view">
+        <field name="name">bookstore.appointment.search</field>
+        <field name="model">bookstore.appointment</field>
+        <field name="arch" type="xml">
+            <search>
+            </search> 
+        </field>
+    </record>
+
+    <record id="action_bookstore_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">bookstore.appointment</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first appointment.
+            </p>
+        </field>
+    </record>
+
+</odoo>

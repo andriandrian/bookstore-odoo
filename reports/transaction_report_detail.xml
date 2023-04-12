@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="transaction_report_template">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <span t-field="o.ref"/>
+                        </h2>
+                        <div>
+                            <div>
+                                <strong>Transaction Date : </strong>
+                                <span t-field="o.date"/>
+                        </div>
+                            <h4><strong>Total : </strong>
+                            <span t-field="o.amount_total"/>
+                            </h4>
+                        </div>
+                        <br />
+                        <h4>Transaction Details</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <!-- <th>Book Ref</th> -->
+                                    <th>Book Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.transaction_ids" t-as="d">
+                                    <!-- <td><span t-esc="d.ref"/></td> -->
+                                    <td><span t-esc="d.name.name"/></td>
+                                    <td><span t-esc="d.qty"/></td>
+                                    <td><span t-esc="d.price_rel"/></td>
+                                    <td><span t-esc="d.subtotal"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="transaction_report_temp" model="ir.actions.report">
+        <field name="name">Transaction Details</field>
+        <field name="model">bookstore.transaction</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bookstore.transaction_report_template</field>
+        <field name="report_file">bookstore.transaction_report_template</field>
+        <field name="print_report_name">'Transaction Detail'</field>
+        <field name="binding_model_id" ref="model_bookstore_transaction"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

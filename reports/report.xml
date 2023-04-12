@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Paperformat PDF -->
+        <!-- <record id="transaction_paperformat" model="report.paperformat">
+            <field name="name">Metaline Bom Molding Paperformat</field>
+            <field name="default" eval="False" />
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">120</field>
+            <field name="dpi">90</field>
+        </record> -->
+
+    <!-- PDF -->
+        <!-- <report 
+            id="transaction_action_report_pdf"
+            model="bookstore.transaction" 
+            string="Transaction Details"
+            report_type="qweb-pdf"
+            name="bookstore.transaction_report_detail" 
+            file="bookstore.transaction_report_detail" 
+            paperformat="transaction_paperformat"
+            print_report_name="Transaction Details"
+        /> -->
+    
+    <!-- BASE TEMPLATE -->
+        <!-- <template id="transaction_report_detail">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.basic_layout">
+                        Page
+                        <div class="page" style="font-size:10px">
+                            Test
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template> -->
+
+
+
+    <record id="report_transaction_id_detail" model="ir.actions.report">
+        <field name="name">Transaction Details</field>
+        <field name="model">bookstore.transaction</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bookstore.report_transaction_id_detail</field>
+        <field name="report_file">bookstore.report_transaction_id_detail</field>
+        <field name="binding_model_id" ref="model_bookstore_transaction"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- <record id="report_transaction_id_details" model="ir.actions.report">
+        <field name="name">Transaction Details</field>
+        <field name="model">bookstore.transaction</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bookstore.report_transaction_id_details</field>
+        <field name="report_file">bookstore.report_transaction_id_details</field>
+        <field name="binding_model_id" ref="model_bookstore_transaction"/>
+        <field name="binding_type">report</field>
+    </record> -->
+
+</odoo>

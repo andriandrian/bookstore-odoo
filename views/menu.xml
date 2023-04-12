@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <menuitem id="menu_bookstore_root" 
+    name="Bookstore" 
+    sequence="0"/>
+
+    <menuitem id="menu_bookstore_master"
+    name="Menu"
+    parent="menu_bookstore_root"
+    sequence="1"/>
+    
+    <menuitem id="menu_bookstore_transaction"
+    name="Transaction"
+    parent="menu_bookstore_root"
+    action="action_bookstore_transaction"
+    sequence="2"/>
+
+    <menuitem id="menu_employee" 
+    name="Employees" 
+    parent="menu_bookstore_master"
+    action="action_bookstore_employee"
+    sequence="99"/>
+    
+    <menuitem id="menu_book" 
+    name="Books" 
+    parent="menu_bookstore_master"
+    action="action_bookstore_book"
+    sequence="3"/>
+
+    <menuitem id="menu_category" 
+    name="Categories" 
+    parent="menu_bookstore_master"
+    action="action_bookstore_category"
+    sequence="4"/>
+
+    <menuitem id="menu_inventory" 
+    name="Inventory" 
+    parent="menu_bookstore_master"
+    action="action_bookstore_inventory"
+    sequence="5"/>
+
+
+    <!-- <menuitem id="menu_appointment" 
+    name="Appointments" 
+    action="action_bookstore_appointment"
+    parent="menu_bookstore_master"
+    sequence="100"/> -->
+
+</odoo>

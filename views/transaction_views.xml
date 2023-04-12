@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- Tree -->
+    <record id="view_bookstore_transaction_tree" model="ir.ui.view">
+        <field name="name">bookstore.transaction.tree</field>
+        <field name="model">bookstore.transaction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="ref"/>
+                <field name="amount_total"/>
+            </tree> 
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_bookstore_transaction_form" model="ir.ui.view">
+        <field name="name">bookstore.transaction.form</field>
+        <field name="model">bookstore.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- <header>
+                    <button name="print_report" type="object" string="Print" class="oe_highlight"  />
+                </header> -->
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ref"/>
+                            <field name="date"/>
+                            <field name="amount_total"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Transaction" name="page_1">
+                            <field name="transaction_ids">
+                                <tree editable="1">
+                                    <field name="name"/>
+                                    <field name="price_rel"/>
+                                    <field name="qty"/>
+                                    <field name="subtotal"/>
+                                </tree>
+                            </field>
+                        </page>
+                </notebook>
+                </sheet>
+            </form> 
+        </field>
+    </record>
+
+    <!-- Search -->
+    <record id="view_bookstore_transaction_search" model="ir.ui.view">
+        <field name="name">bookstore.transaction.search</field>
+        <field name="model">bookstore.transaction</field>
+        <field name="arch" type="xml">
+            <search>
+            </search> 
+        </field>
+    </record>
+
+    <!-- Sequence -->
+    <record id="seq_bookstore_transaction" model="ir.sequence">
+       <field name="name">Book Sequence</field>
+       <field name="code">bookstore.transaction</field>
+       <field name="prefix">TS</field>
+       <field name="padding">5</field>
+       <field name="company_id" eval="False"/>
+   </record>
+
+    <!-- Action -->
+    <record id="action_bookstore_transaction" model="ir.actions.act_window">
+        <field name="name">Transaction</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">bookstore.transaction</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first transaction.
+            </p>
+        </field>
+    </record>
+</odoo>
+

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bookstore_employee,access.bookstore.employee,model_bookstore_employee,,1,1,1,1
+access_bookstore_appointment,access.bookstore.appointment,model_bookstore_appointment,,1,1,1,1
+access_bookstore_book,access.bookstore.book,model_bookstore_book,,1,1,1,1
+access_bookstore_transaction_line,access.bookstore.transaction_line,model_bookstore_transaction_line,,1,1,1,1
+access_bookstore_category,access.bookstore.category,model_bookstore_category,,1,1,1,1
+access_bookstore_inventory,access.bookstore.inventory,model_bookstore_inventory,,1,1,1,1
+access_bookstore_transaction,access.transcation.inventory,model_bookstore_transaction,,1,1,1,1
