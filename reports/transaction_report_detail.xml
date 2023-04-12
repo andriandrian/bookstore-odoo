@@ -15,7 +15,11 @@
                                 <span t-field="o.date"/>
                         </div>
                             <h4><strong>Total : </strong>
+<<<<<<< HEAD
                             <span t-field="o.amount_total"/>
+=======
+                            <span t-field="o.total"/>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
                             </h4>
                         </div>
                         <br />
@@ -35,7 +39,11 @@
                                     <!-- <td><span t-esc="d.ref"/></td> -->
                                     <td><span t-esc="d.name.name"/></td>
                                     <td><span t-esc="d.qty"/></td>
+<<<<<<< HEAD
                                     <td><span t-esc="d.price_rel"/></td>
+=======
+                                    <td><span t-esc="d.price"/></td>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
                                     <td><span t-esc="d.subtotal"/></td>
                                 </tr>
                             </tbody>

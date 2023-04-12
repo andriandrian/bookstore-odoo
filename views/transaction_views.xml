@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
+<<<<<<< HEAD
     <!-- Tree -->
+=======
+
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_transaction_tree" model="ir.ui.view">
         <field name="name">bookstore.transaction.tree</field>
         <field name="model">bookstore.transaction</field>
@@ -9,26 +13,44 @@
             <tree>
                 <field name="date"/>
                 <field name="ref"/>
+<<<<<<< HEAD
                 <field name="amount_total"/>
+=======
+                <field name="total"/>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
             </tree> 
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Form -->
+=======
+
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_transaction_form" model="ir.ui.view">
         <field name="name">bookstore.transaction.form</field>
         <field name="model">bookstore.transaction</field>
         <field name="arch" type="xml">
             <form>
+<<<<<<< HEAD
                 <!-- <header>
                     <button name="print_report" type="object" string="Print" class="oe_highlight"  />
                 </header> -->
+=======
+                <header>
+                    <!-- <button name="print_report" type="object" string="Print" class="oe_highlight"  /> -->
+                </header>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
                 <sheet>
                     <group>
                         <group>
                             <field name="ref"/>
                             <field name="date"/>
+<<<<<<< HEAD
                             <field name="amount_total"/>
+=======
+                            <field name="total"/>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
                         </group>
                     </group>
                     <notebook>
@@ -36,7 +58,11 @@
                             <field name="transaction_ids">
                                 <tree editable="1">
                                     <field name="name"/>
+<<<<<<< HEAD
                                     <field name="price_rel"/>
+=======
+                                    <field name="price"/>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
                                     <field name="qty"/>
                                     <field name="subtotal"/>
                                 </tree>
@@ -48,7 +74,10 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Search -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_transaction_search" model="ir.ui.view">
         <field name="name">bookstore.transaction.search</field>
         <field name="model">bookstore.transaction</field>
@@ -58,7 +87,10 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Sequence -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="seq_bookstore_transaction" model="ir.sequence">
        <field name="name">Book Sequence</field>
        <field name="code">bookstore.transaction</field>
@@ -67,7 +99,10 @@
        <field name="company_id" eval="False"/>
    </record>
 
+<<<<<<< HEAD
     <!-- Action -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="action_bookstore_transaction" model="ir.actions.act_window">
         <field name="name">Transaction</field>
         <field name="type">ir.actions.act_window</field> 
@@ -80,5 +115,15 @@
             </p>
         </field>
     </record>
+<<<<<<< HEAD
+=======
+
+    <!-- <menuitem id="menu_bookstore_transaction"
+        name="Transaction"
+        parent="menu_bookstore_root"
+        action="action_bookstore_transaction"
+        sequence="2"/> -->
+
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
 </odoo>
 

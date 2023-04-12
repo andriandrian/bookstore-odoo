@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
+<<<<<<< HEAD
     <!-- Tree -->
+=======
+
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_category_tree" model="ir.ui.view">
         <field name="name">bookstore.category.tree</field>
         <field name="model">bookstore.category</field>
@@ -13,7 +17,10 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Form -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_category_form" model="ir.ui.view">
         <field name="name">bookstore.category.form</field>
         <field name="model">bookstore.category</field>
@@ -39,7 +46,10 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Search -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_category_search" model="ir.ui.view">
         <field name="name">bookstore.category.search</field>
         <field name="model">bookstore.category</field>
@@ -49,7 +59,10 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Sequence -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="seq_bookstore_category" model="ir.sequence">
        <field name="name">Category Sequence</field>
        <field name="code">bookstore.category</field>
@@ -58,7 +71,10 @@
        <field name="company_id" eval="False"/>
    </record>
 
+<<<<<<< HEAD
     <!-- Action -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="action_bookstore_category" model="ir.actions.act_window">
         <field name="name">Categories</field>
         <field name="type">ir.actions.act_window</field> 

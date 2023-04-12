@@ -10,12 +10,21 @@
     name="Menu"
     parent="menu_bookstore_root"
     sequence="1"/>
+<<<<<<< HEAD
     
     <menuitem id="menu_bookstore_transaction"
     name="Transaction"
     parent="menu_bookstore_root"
     action="action_bookstore_transaction"
     sequence="2"/>
+=======
+
+    <!-- <menuitem id="menu_bookstore_transaction"
+    name="Transaction"
+    parent="menu_bookstore_root"
+    action=""
+    sequence="2"/> -->
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
 
     <menuitem id="menu_employee" 
     name="Employees" 
@@ -41,6 +50,14 @@
     action="action_bookstore_inventory"
     sequence="5"/>
 
+<<<<<<< HEAD
+=======
+    <menuitem id="menu_bookstore_transaction"
+        name="Transaction"
+        parent="menu_bookstore_root"
+        action="action_bookstore_transaction"
+        sequence="2"/>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
 
     <!-- <menuitem id="menu_appointment" 
     name="Appointments" 

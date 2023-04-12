@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
+<<<<<<< HEAD
     <!-- Tree -->
+=======
+
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_inventory_tree" model="ir.ui.view">
         <field name="name">bookstore.inventory.tree</field>
         <field name="model">bookstore.inventory</field>
@@ -19,17 +23,25 @@
                 <field name="stock"/>
                 <field name="unit_measure"/>
                 <field name="company"/>
+<<<<<<< HEAD
                 <field name="state"
                 decoration-warning="state == 'draft'"
                 decoration-info="state == 'shipped'"
                 decoration-success="state == 'completed'"
                 decoration-danger="state == 'cancel'"
                 widget="badge"/>
+=======
+                <field name="state"/>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
             </tree> 
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Form -->
+=======
+
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_inventory_form" model="ir.ui.view">
         <field name="name">bookstore.inventory.form</field>
         <field name="model">bookstore.inventory</field>
@@ -46,6 +58,7 @@
                 </header>
                 <sheet>
                     <group>
+<<<<<<< HEAD
                         <group >
                             <field name="date" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
                             <field name="invoice_date" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
@@ -57,6 +70,19 @@
                             <field name="stock" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
                             <field name="unit_measure" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
                             <field name="company" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
+=======
+                        <group>
+                            <field name="date"/>
+                            <field name="invoice_date"/>
+                            <field name="ref"/>
+                            <field name="name" string="Product Name"/>
+                        </group>
+                        <group>
+                            <field name="stock_type"/>
+                            <field name="stock"/>
+                            <field name="unit_measure"/>
+                            <field name="company"/>
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
                         </group>
                     </group>
                 </sheet>
@@ -70,19 +96,26 @@
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Search -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="view_bookstore_inventory_search" model="ir.ui.view">
         <field name="name">bookstore.inventory.search</field>
         <field name="model">bookstore.inventory</field>
         <field name="arch" type="xml">
             <search>
+<<<<<<< HEAD
                 <searchpanel>
                     <field name="state" select="multi" icon="fa-users" enable_counters="1"/>
                 </searchpanel>
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
             </search> 
         </field>
     </record>
 
+<<<<<<< HEAD
     <!-- Sequence -->
     <record id="seq_bookstore_inventory" model="ir.sequence">
        <field name="name">Invengtory Sequence</field>
@@ -93,6 +126,8 @@
    </record>
 
     <!-- Action -->
+=======
+>>>>>>> 0718a574219702b4cd5d5969f717d0bb8116cde5
     <record id="action_bookstore_inventory" model="ir.actions.act_window">
         <field name="name">Inventory</field>
         <field name="type">ir.actions.act_window</field> 
