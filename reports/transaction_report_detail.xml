@@ -15,7 +15,7 @@
                                 <span t-field="o.date"/>
                         </div>
                             <h4><strong>Total : </strong>
-                            <span t-field="o.amount_total"/>
+                            <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                             </h4>
                         </div>
                         <br />
@@ -35,8 +35,8 @@
                                     <!-- <td><span t-esc="d.ref"/></td> -->
                                     <td><span t-esc="d.name.name"/></td>
                                     <td><span t-esc="d.qty"/></td>
-                                    <td><span t-esc="d.price_rel"/></td>
-                                    <td><span t-esc="d.subtotal"/></td>
+                                    <td><span t-esc="d.price_rel" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                                    <td><span t-esc="d.subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
                                 </tr>
                             </tbody>
                         </table>

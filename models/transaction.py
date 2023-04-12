@@ -6,6 +6,8 @@ class Transaction(models.Model):
     _description = "Book Transaction"
     _rec_name = 'ref'
 
+    currency_id = fields.Many2one('res.currency', string='Currency',
+                                  default=lambda self: self.env.user.company_id.currency_id.id)
     name = fields.Char(string='Name', tracking=True)
     ref = fields.Char(string='Reference', required=True,
                       readonly=True, default=lambda self: _('New'))
@@ -43,6 +45,8 @@ class TransactionLine(models.Model):
     _name = "bookstore.transaction.line"
     _description = "Book Line"
 
+    currency_id = fields.Many2one('res.currency', string='Currency',
+                                  default=lambda self: self.env.user.company_id.currency_id.id)
     transaction_id = fields.Many2one('bookstore.transaction', string='Book')
     name = fields.Many2one('bookstore.book', string='Book')
     price_rel = fields.Float(string='Price', related="name.price")
