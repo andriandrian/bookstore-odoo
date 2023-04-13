@@ -6,7 +6,7 @@
         <field name="name">bookstore.inventory.tree</field>
         <field name="model">bookstore.inventory</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree expand="1">
                 <field name="date"/>
                 <field name="invoice_date"/>
                 <field name="ref" decoration-bf="1"/>
@@ -79,6 +79,10 @@
                 <searchpanel>
                     <field name="state" select="multi" icon="fa-users" enable_counters="1"/>
                 </searchpanel>
+                <group expand="1" string="Group By">
+                    <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>
+                    <filter name="group_by_stock_type" string="Stock Type" context="{'group_by':'stock_type'}"/>
+                </group>
             </search> 
         </field>
     </record>

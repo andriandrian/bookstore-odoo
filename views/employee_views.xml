@@ -118,6 +118,11 @@
                 <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>
                 <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]"/>
                 <separator />
+                <filter name="filter_staff" string="Staff" domain="[('position', '=', 'staff')]"/>
+                <filter name="filter_cashier" string="Cashier" domain="[('position', '=', 'cashier')]"/>
+                <filter name="filter_administrator" string="Administrator" domain="[('position', '=', 'administrator')]"/>
+                <filter name="filter_shippingstaff" string="Shipping and Receiving Staff" domain="[('position', '=', 'shippingstaff')]"/>
+                <separator />
                 <group expand="0" string="Group By">
                     <filter string="Gender" name="group_by_gender" context="{'group_by':'gender'}"/>
                 </group>
