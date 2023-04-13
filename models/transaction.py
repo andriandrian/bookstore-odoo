@@ -4,6 +4,7 @@ from odoo import models, fields, api, _
 class Transaction(models.Model):
     _name = "bookstore.transaction"
     _description = "Book Transaction"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'ref'
 
     currency_id = fields.Many2one('res.currency', string='Currency',

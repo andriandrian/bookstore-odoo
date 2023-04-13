@@ -14,23 +14,21 @@ class Inventory(models.Model):
         string='Invoice Date', default=fields.Datetime.now, tracking=True)
     ref_rel = fields.Char(string='Reference',
                           readonly=True, related='name.ref')
-    ref = fields.Char(string='Reference', required=True,
-                      readonly=True, default=lambda self: _('New'))
-    stock = fields.Integer(string='Stock', tracking=True, required=True)
+    ref = fields.Char(string='Reference', readonly=True,
+                      default=lambda self: _('New'))
+    stock = fields.Integer(string='Stock', tracking=True, )
     unit_measure = fields.Selection([('piece', 'PCs'), ('dozen', 'Dozen')],
-                                    string="Unit of Measure", default='piece', tracking=True, required=True)
+                                    string="Unit of Measure", default='piece', tracking=True, )
     company = fields.Many2one(
-        'res.company', string='To', tracking=True, required=True)
-    state = fields.Selection([('draft', 'Draft'), ('done', 'Done')],
-                             string="State", default='draft', tracking=True, required=True)
+        'res.company', string='To', tracking=True, )
     stock_type = fields.Selection(
         [('in', 'In'),
          ('out', 'Out')],
-        string="Type", default='in', tracking=True, required=True)
+        string="Type", default='in', tracking=True, )
     state = fields.Selection([('draft', 'Draft'),
                               ('shipped', 'Shipped'),
                               ('completed', 'Completed'),
-                              ('cancel', 'Cancelled')], string="State", default='draft', tracking=True, required=True)
+                              ('cancel', 'Cancelled')], string="State", default='draft', tracking=True, )
 
     @api.model
     def create(self, vals):

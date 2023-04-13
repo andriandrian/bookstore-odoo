@@ -7,7 +7,7 @@
         <field name="model">bookstore.employee</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" string="Employee Name"/>
+                <field name="name" string="Employee Name" decoration-bf="1"/>
                 <field name="age" optional="show"/>
                 <field name="gender"/>
                 <field name="position"/>
@@ -48,9 +48,9 @@
 
     <!-- Kanban -->
     <record id="view_bookstore_employee_kanban" model="ir.ui.view">
-      <field name="name">bookstore.employee.kanban</field>
-      <field name="model">bookstore.employee</field>
-      <field name="arch" type="xml">
+        <field name="name">bookstore.employee.kanban</field>
+        <field name="model">bookstore.employee</field>
+        <field name="arch" type="xml">
         <kanban class="o_bookstore_employee_kanban">
             <field name="name"/>
             <field name="age"/>
@@ -65,22 +65,19 @@
                             <img class="o_kanban_image_inner_pic d-none d-md-block"
                                 t-att-src="kanban_image('bookstore.employee', 'image', record.id.raw_value)" />
                         </div> -->
-                         <div class="oe_kanban_image d-none d-md-block">
+                        <div class="oe_kanban_image d-none d-md-block">
                             <field name="image" widget="image" options="{'size': [100, 100]}" />
                         </div>
                         <div class="oe_kanban_details d-flex flex-column ml-3">
-                            <strong>
                                 <h2><field name="name"/></h2>
-                            </strong>
                             <ul>
-                                <li>Age : <field name="age"/></li>
-                                <li>Position : <field name="position"/></li>
+                                <li style="font-size: 12px">Age : <field name="age"/></li>
+                                <li style="font-size: 12px">Position : <field name="position"/></li>
                             </ul>
                         </div>
                     </div>
                 </t>
             </templates>
-
 
 
             <!-- <templates>
@@ -105,10 +102,8 @@
                     </div>
                 </t>
             </templates> -->
-
-
         </kanban>
-      </field>
+        </field>
     </record>
 
     <!-- Search -->

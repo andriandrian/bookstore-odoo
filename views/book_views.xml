@@ -8,7 +8,7 @@
         <field name="model">bookstore.book</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="ref"/>
+                <field name="ref" decoration-bf="1"/>
                 <field name="name" string="Book Title"/>
                 <field name="category_id"/>
                 <field name="author"/>
@@ -31,7 +31,7 @@
             </header>
                 <sheet>
                 <div class="oe_button_box" name="button_box">
-                  <button type="object" name="inventory_action" class="oe_stat_button" icon="fa-cubes">
+                    <button type="object" name="inventory_action" class="oe_stat_button" icon="fa-cubes">
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value" widget="statinfo">
                                     <field name="qty"/>
@@ -59,9 +59,6 @@
                         <page string="Page 1" name="prescription">
                             <field name="prescription" placeholder="Enter your text"/>
                         </page>
-                        <page string="Page 2">
-                            <field name="prescription" placeholder="Enter your text"/>
-                        </page>
                     </notebook>
                 </sheet>
 
@@ -87,12 +84,12 @@
 
     <!-- Sequence -->
     <record id="seq_bookstore_book" model="ir.sequence">
-       <field name="name">Book Sequence</field>
-       <field name="code">bookstore.book</field>
-       <field name="prefix">BK</field>
-       <field name="padding">5</field>
-       <field name="company_id" eval="False"/>
-   </record>
+        <field name="name">Book Sequence</field>
+        <field name="code">bookstore.book</field>
+        <field name="prefix">BK</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
     <!-- Action -->
     <record id="action_bookstore_book" model="ir.actions.act_window">
