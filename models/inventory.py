@@ -28,7 +28,7 @@ class Inventory(models.Model):
     state = fields.Selection([('draft', 'Draft'),
                               ('shipped', 'Shipped'),
                               ('completed', 'Completed'),
-                              ('cancel', 'Cancelled')], string="State", default='draft', tracking=True, )
+                              ('cancel', 'Cancelled')], string="Status", default='draft', tracking=True, )
 
     @api.model
     def create(self, vals):
