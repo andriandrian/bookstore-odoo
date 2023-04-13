@@ -38,7 +38,7 @@
                             <field name="transaction_ids">
                                 <tree editable="1">
                                     <field name="currency_id" invisible="1"/>
-                                    <field name="name"/>
+                                    <field name="name" options="{'no_quick_create':True}"/>
                                     <field name="price_rel" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                                     <field name="qty"/>
                                     <field name="subtotal" widget="monetary" options="{'currency_field': 'currency_id'}"/>

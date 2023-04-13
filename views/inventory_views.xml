@@ -50,7 +50,7 @@
                             <field name="date" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
                             <field name="invoice_date" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
                             <field name="ref" readonly="1" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
-                            <field name="name" string="Product Name" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
+                            <field name="name" string="Product Name" attrs="{'readonly':[('state','not in', ['draft'])]}" options="{'no_quick_create':True}"/>
                         </group>
                         <group>
                             <field name="stock_type" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
