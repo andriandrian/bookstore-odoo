@@ -29,6 +29,7 @@ class Inventory(models.Model):
                               ('shipped', 'Shipped'),
                               ('completed', 'Completed'),
                               ('cancel', 'Cancelled')], string="Status", default='draft', tracking=True, )
+    transaction_id = fields.Integer(string='Transaction ID', tracking=True, )
 
     @api.model
     def create(self, vals):

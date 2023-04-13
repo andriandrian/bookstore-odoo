@@ -41,8 +41,8 @@ class Books(models.Model):
 
     def _compute_quantity(self):
         for rec in self:
-            rec.qty = sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'in'), ('name', '=', self.id)]).mapped(
-                'stock')) - sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'out'), ('name', '=', self.id)]).mapped('stock'))
+            rec.qty = sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'in'), ('name', '=', self.id), ('state', '=', 'completed')]).mapped(
+                'stock')) - sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'out'), ('name', '=', self.id), ('state', '=', 'completed')]).mapped('stock'))
 
     def wizard_update_stock(self):
         return {

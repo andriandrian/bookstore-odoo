@@ -20,6 +20,9 @@ class Transaction(models.Model):
         string='Date', default=fields.Datetime.now, readonly=True)
     amount_total = fields.Float(
         string='Total', compute='_compute_amount_total')
+    state = fields.Selection([('draft', 'Draft'),
+                              ('completed', 'Completed'),
+                              ('cancel', 'Cancelled')], string="Status", default='draft', tracking=True, )
 
     @api.model
     def create(self, vals):
@@ -29,17 +32,43 @@ class Transaction(models.Model):
         res = super(Transaction, self).create(vals)
         return res
 
-    # @api.multi
-    # def print_report(self):
-    #     return self.env.ref('bookstore.transaction_report_temp').report_action(self)
+    def unlink(self):
+        for rec in self.transaction_ids:
+            self.env['bookstore.inventory'].search(
+                [('transaction_id', '=', self.id)]).unlink()
+
+        return super(Transaction, self).unlink()
 
     def _compute_amount_total(self):
         for rec in self:
             rec.amount_total = sum(rec.transaction_ids.mapped('subtotal'))
 
-    # @api.multi
-    # def print_report(self):
-    #     return self.env.ref('')
+    def action_draft(self):
+        for rec in self:
+            rec.state = 'draft'
+
+    def action_completed(self):
+        for rec in self:
+            rec.state = 'completed'
+        for rec in self.transaction_ids:
+            self.env['bookstore.inventory'].create({
+                'name': rec.name.id,
+                'stock_type': "out",
+                'state': "completed",
+                'stock': rec.qty,
+                'date': fields.Datetime.now(),
+                'invoice_date': fields.Datetime.now(),
+                'transaction_id': self.id,
+            })
+
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'cancel'
+
+        for rec in self.transaction_ids:
+            self.env['bookstore.inventory'].search([('transaction_id', '=', self.id), ('name', '=', rec.name.id), ('stock_type', '=', 'out'), ('state', '=', 'completed')]).write({
+                'state': 'cancel',
+            })
 
 
 class TransactionLine(models.Model):
@@ -58,11 +87,3 @@ class TransactionLine(models.Model):
     def _compute_subtotal(self):
         for rec in self:
             rec.subtotal = rec.price_rel * rec.qty
-
-# class TransactionBook(models.Model):
-    # _name = "bookstore.transaction.book"
-    # _description = "Book Transaction Book"
-
-    # book_ids = fields.Many2one('bookstore.book', string='Book')
-    # price = fields.Float('bookstore.book', string='Price')
-    # qty = fields.Integer(string='Quantity')
