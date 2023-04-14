@@ -11,21 +11,12 @@
                 <field name="invoice_date"/>
                 <field name="ref" decoration-bf="1"/>
                 <field name="name" string="Product"/>
-                <field name="stock_type"
-                    decoration-success="stock_type == 'in'"
-                    decoration-danger="stock_type == 'out'"
-                    widget="badge"
-                />
+                <field name="stock_type" decoration-success="stock_type == 'in'" decoration-danger="stock_type == 'out'" widget="badge" />
                 <field name="stock"/>
                 <field name="unit_measure"/>
                 <field name="company"/>
-                <field name="state"
-                decoration-warning="state == 'draft'"
-                decoration-info="state == 'shipped'"
-                decoration-success="state == 'completed'"
-                decoration-danger="state == 'cancel'"
-                widget="badge"/>
-            </tree> 
+                <field name="state" decoration-warning="state == 'draft'" decoration-info="state == 'shipped'" decoration-success="state == 'completed'" decoration-danger="state == 'cancel'" widget="badge"/>
+            </tree>
         </field>
     </record>
 
@@ -36,15 +27,17 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                <button name="action_draft" string="Draft" type="object" states="cancel" class="oe_highlight"/>
-                <button name="action_shipped" string="Shipped" type="object" states="draft" class="oe_highlight"/>
-                <button name="action_completed" string="Completed" type="object" states="shipped" class="oe_highlight"/>
-                <button name="action_cancel" string="Cancel" type="object" states="draft,shipped,completed"/>
+                    <button name="action_draft" string="Draft" type="object" states="cancel" class="oe_highlight"/>
+                    <button name="action_shipped" string="Shipped" type="object" states="draft" class="oe_highlight"/>
+                    <button name="action_completed" string="Completed" type="object" states="shipped" class="oe_highlight"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="draft,shipped,completed"/>
                     <field name="state" widget="statusbar" nolabel="1"/>
                     <!-- options="{'clickable': '1'}" -->
                     <!-- statusbar_visible="draft,shipped,cancelled" -->
                 </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Cancelled" bg_color="bg-danger" attrs="{'invisible': [('state', '!=', 'cancel')]}"/>
+                    <widget name="web_ribbon" title="Completed" bg_color="bg-success" attrs="{'invisible': [('state', '!=', 'completed')]}"/>
                     <group>
                         <group >
                             <field name="date" attrs="{'readonly':[('state','not in', ['draft'])]}"/>
@@ -66,7 +59,7 @@
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
-            </form> 
+            </form>
         </field>
     </record>
 
@@ -83,7 +76,7 @@
                     <filter name="group_by_state" string="Status" context="{'group_by':'state'}"/>
                     <filter name="group_by_stock_type" string="Stock Type" context="{'group_by':'stock_type'}"/>
                 </group>
-            </search> 
+            </search>
         </field>
     </record>
 
@@ -99,7 +92,7 @@
     <!-- Action -->
     <record id="action_bookstore_inventory" model="ir.actions.act_window">
         <field name="name">Inventory</field>
-        <field name="type">ir.actions.act_window</field> 
+        <field name="type">ir.actions.act_window</field>
         <field name="res_model">bookstore.inventory</field>
         <field name="context">{'search_default_group_by_state': 1}</field>
         <field name="view_mode">tree,form</field>
