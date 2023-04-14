@@ -13,7 +13,7 @@ class Books(models.Model):
     price = fields.Float(string='Price', tracking=True)
     description = fields.Text(string='Description', tracking=True)
     qty = fields.Integer(string='Quantity', tracking=True,
-                         compute='_compute_quantity')
+                         compute='_compute_quantity', group_operator="sum")
     category_id = fields.Many2one('bookstore.category', string="Category")
     ref = fields.Char(string='Reference', required=True,
                       readonly=True, default=lambda self: _('New'))
@@ -39,10 +39,26 @@ class Books(models.Model):
         action['domain'] = [('name', '=', self.id)]
         return action
 
+    # def _compute_quantity(self):
+    #     for rec in self:
+    #         rec.qty = sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'in'), ('name', '=', self.id), ('state', '=', 'completed')]).mapped(
+    #             'stock')) - sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'out'), ('name', '=', self.id), ('state', '=', 'completed')]).mapped('stock'))
+
     def _compute_quantity(self):
-        for rec in self:
-            rec.qty = sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'in'), ('name', '=', self.id), ('state', '=', 'completed')]).mapped(
-                'stock')) - sum(rec.env['bookstore.inventory'].search([('stock_type', '=', 'out'), ('name', '=', self.id), ('state', '=', 'completed')]).mapped('stock'))
+        for book in self:
+            in_stock = sum(book.env['bookstore.inventory'].search([
+                ('stock_type', '=', 'in'),
+                ('name', '=', book.id),
+                ('state', '=', 'completed')
+            ]).mapped('stock'))
+
+            out_stock = sum(book.env['bookstore.inventory'].search([
+                ('stock_type', '=', 'out'),
+                ('name', '=', book.id),
+                ('state', '=', 'completed')
+            ]).mapped('stock'))
+
+            book.qty = in_stock - out_stock
 
     def wizard_update_stock(self):
         return {

@@ -13,9 +13,10 @@
                 <field name="category_id"/>
                 <field name="author"/>
                 <field name="currency_id" invisible="1"/>
+                <field name="qty"/>
                 <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}" />
                 <field name="description" optional="hide"/>
-            </tree> 
+            </tree>
         </field>
     </record>
 
@@ -25,13 +26,13 @@
         <field name="model">bookstore.book</field>
         <field name="arch" type="xml">
             <form>
-            <header>
-                <!-- <button name="%(action_bookstore_inventory)d" type="action" class="oe_highlight" string="Update Stock"/>' -->
-                <button name="wizard_update_stock" type="object" class="oe_highlight" string="Update Stock"/>'
-            </header>
+                <header>
+                    <!-- <button name="%(action_bookstore_inventory)d" type="action" class="oe_highlight" string="Update Stock"/>' -->
+                    <button name="wizard_update_stock" type="object" class="oe_highlight" string="Update Stock"/>
+                </header>
                 <sheet>
-                <div class="oe_button_box" name="button_box">
-                    <button type="object" name="inventory_action" class="oe_stat_button" icon="fa-cubes">
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="inventory_action" class="oe_stat_button" icon="fa-cubes">
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value" widget="statinfo">
                                     <field name="qty"/>
@@ -40,7 +41,7 @@
                                 </span>
                             </div>
                         </button>
-                </div>
+                    </div>
                     <group>
                         <group>
                             <field name="name" string="Book Title"/>
@@ -68,7 +69,7 @@
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
-            </form> 
+            </form>
         </field>
     </record>
 
@@ -78,7 +79,7 @@
         <field name="model">bookstore.book</field>
         <field name="arch" type="xml">
             <search>
-            </search> 
+            </search>
         </field>
     </record>
 
@@ -94,7 +95,7 @@
     <!-- Action -->
     <record id="action_bookstore_book" model="ir.actions.act_window">
         <field name="name">Books</field>
-        <field name="type">ir.actions.act_window</field> 
+        <field name="type">ir.actions.act_window</field>
         <field name="res_model">bookstore.book</field>
         <field name="context">{}</field>
         <field name="view_mode">tree,form</field>
